@@ -61,7 +61,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// LogIQ specific colors
+				'highlight-cyan': 'hsl(var(--highlight-cyan))',
+				'highlight-magenta': 'hsl(var(--highlight-magenta))',
+				'highlight-yellow': 'hsl(var(--highlight-yellow))'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['IBM Plex Mono', 'monospace'],
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-hero': 'var(--gradient-hero)',
+			},
+			boxShadow: {
+				glow: 'var(--shadow-glow)',
+				card: 'var(--shadow-card)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

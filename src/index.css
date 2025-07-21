@@ -2,41 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* LogIQ Algorithm Visualizer Design System
+Dark tech theme with blue/purple gradients and cyan accents
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme base colors */
+    --background: 226 50% 8%;
+    --foreground: 210 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces */
+    --card: 225 40% 12%;
+    --card-foreground: 210 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover surfaces */
+    --popover: 225 40% 12%;
+    --popover-foreground: 210 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Cyan/Blue gradient brand color */
+    --primary: 195 100% 50%;
+    --primary-foreground: 226 50% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Deep purple/violet */
+    --secondary: 260 50% 15%;
+    --secondary-foreground: 210 100% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted surfaces */
+    --muted: 225 40% 10%;
+    --muted-foreground: 215 25% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Bright cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 226 50% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive states */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 100% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 225 25% 20%;
+    --input: 225 25% 15%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(260 100% 60%));
+    --gradient-secondary: linear-gradient(180deg, hsl(226 50% 8%), hsl(260 40% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(226 60% 8%) 0%, hsl(260 50% 15%) 50%, hsl(290 40% 20%) 100%);
+    
+    /* Highlight colors */
+    --highlight-cyan: 180 100% 50%;
+    --highlight-magenta: 320 100% 65%;
+    --highlight-yellow: 45 100% 70%;
+    
+    /* Shadows and glows */
+    --shadow-glow: 0 0 30px hsla(195, 100%, 50%, 0.3);
+    --shadow-card: 0 10px 25px hsla(226, 50%, 8%, 0.5);
+    
+    /* Animation transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +127,61 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-hero);
+  }
+}
+
+@layer components {
+  /* Button variants for the design system */
+  .btn-glow {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px hsla(195, 100%, 50%, 0.5);
+  }
+  
+  .btn-outline-glow {
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: transparent;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-outline-glow:hover {
+    background: hsla(195, 100%, 50%, 0.1);
+    box-shadow: 0 0 20px hsla(195, 100%, 50%, 0.3);
+  }
+  
+  /* Card with glow effect */
+  .card-glow {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .card-glow:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card), 0 0 25px hsla(195, 100%, 50%, 0.15);
+  }
+  
+  /* Gradient text effect */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animated background elements */
+  .bg-code-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsla(195, 100%, 50%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsla(260, 100%, 60%, 0.1) 0%, transparent 50%);
   }
 }
