@@ -323,33 +323,33 @@ export const accessibilityTester = new AccessibilityTester();
 
 // Development helper functions
 export const startPerformanceMonitoring = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     performanceMonitor.startMonitoring();
     console.log('Performance monitoring started');
   }
 };
 
 export const stopPerformanceMonitoring = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     performanceMonitor.stopMonitoring();
     console.log('Performance monitoring stopped');
   }
 };
 
 export const logPerformanceReport = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log(performanceMonitor.getPerformanceReport());
   }
 };
 
 export const logAccessibilityReport = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log(accessibilityTester.getAccessibilityReport());
   }
 };
 
 export const runFullDiagnostics = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log('=== PERFORMANCE & ACCESSIBILITY DIAGNOSTICS ===');
     logPerformanceReport();
     console.log('\n');
@@ -410,7 +410,7 @@ export const createAdaptivePerformanceManager = () => {
 export const adaptivePerformanceManager = createAdaptivePerformanceManager();
 
 // Auto-run diagnostics and adaptive performance in development
-if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+if (import.meta.env.DEV && typeof window !== 'undefined') {
   // Run diagnostics after page load
   window.addEventListener('load', () => {
     setTimeout(() => {

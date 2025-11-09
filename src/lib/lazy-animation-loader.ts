@@ -339,7 +339,7 @@ export const memoryEfficientLoader = new MemoryEfficientAnimationLoader();
 
 // Development utilities
 export const logAnimationLoadingStats = (): void => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     const bundleInfo = getAnimationBundleInfo();
     const cacheInfo = memoryEfficientLoader.getCacheInfo();
     const loadedModules = progressiveLoader.getLoadedModules();

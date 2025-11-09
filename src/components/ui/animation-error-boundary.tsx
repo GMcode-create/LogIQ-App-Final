@@ -59,7 +59,7 @@ export class AnimationErrorBoundary extends Component<
     this.props.onError?.(error, errorInfo);
 
     // Report to error tracking service in production
-    if (process.env.NODE_ENV === 'production') {
+    if (import.meta.env.PROD) {
       this.reportError(error, errorInfo);
     }
   }

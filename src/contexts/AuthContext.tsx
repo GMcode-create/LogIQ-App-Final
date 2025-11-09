@@ -153,7 +153,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         
         // Store specific error messages for the AuthModal
         if (error.message.includes('Email not confirmed')) {
-          if (process.env.NODE_ENV === 'development') {
+          if (import.meta.env.DEV) {
             (window as any).loginError = 'Email confirmation is still enabled in Supabase. Please go to Authentication → Settings in your Supabase dashboard and uncheck "Enable email confirmations", then delete this user and sign up again.';
           } else {
             (window as any).loginError = 'Your email address needs to be confirmed. Please check your email for a confirmation link, or contact support if you need help.';

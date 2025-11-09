@@ -31,7 +31,7 @@ export const usePerformanceOptimization = (
     enableAdaptiveMode = true,
     enableMemoryManagement = true,
     enableProgressiveLoading = true,
-    enablePerformanceMonitoring = process.env.NODE_ENV === 'development',
+    enablePerformanceMonitoring = import.meta.env.DEV,
     performanceThreshold = {
       frameRate: 45,
       droppedFrames: 10,
@@ -150,7 +150,7 @@ export const usePerformanceOptimization = (
       document.documentElement.classList.add(`performance-mode-${currentMode}`);
 
       // Notify about optimization
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
         console.log(`Performance optimized to ${currentMode} mode`);
       }
 

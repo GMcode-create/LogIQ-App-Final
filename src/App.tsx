@@ -18,24 +18,28 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    // Initialize browser compatibility testing
-    initializeBrowserCompatibility();
-    
-    // Preload critical animations
-    preloadCriticalAnimations().catch(error => {
-      console.warn('Failed to preload critical animations:', error);
-    });
-    
-    // Start performance monitoring in development
-    if (process.env.NODE_ENV === 'development') {
-      startPerformanceMonitoring();
+    try {
+      // Initialize browser compatibility testing
+      initializeBrowserCompatibility();
       
-      // Run diagnostics after initial load
-      const timer = setTimeout(() => {
-        runFullDiagnostics();
-      }, 3000);
+      // Preload critical animations
+      preloadCriticalAnimations().catch(error => {
+        console.warn('Failed to preload critical animations:', error);
+      });
       
-      return () => clearTimeout(timer);
+      // Start performance monitoring in development
+      if (import.meta.env.DEV) {
+        startPerformanceMonitoring();
+        
+        // Run diagnostics after initial load
+        const timer = setTimeout(() => {
+          runFullDiagnostics();
+        }, 3000);
+        
+        return () => clearTimeout(timer);
+      }
+    } catch (error) {
+      console.error('App initialization error:', error);
     }
   }, []);
 
@@ -47,7 +51,7 @@ const App = () => {
             enableAdaptiveMode: true,
             enableMemoryManagement: true,
             enableProgressiveLoading: true,
-            enablePerformanceMonitoring: process.env.NODE_ENV === 'development',
+            enablePerformanceMonitoring: import.meta.env.DEV,
           }}
         >
           <TooltipProvider>
