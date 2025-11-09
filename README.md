@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# LogiQ Algorithm Visualizer
 
-## Project info
+A modern, interactive algorithm visualization platform built with React, TypeScript, and Supabase.
 
-**URL**: https://lovable.dev/projects/243c052e-5a8a-4b31-8dd4-73808f412fa3
+## Features
 
-## How can I edit this code?
+- **Interactive Algorithm Visualization**: Watch sorting, searching, and graph algorithms come to life
+- **Real-time Performance Metrics**: Track comparisons, swaps, and execution time
+- **Algorithm Comparison**: Compare multiple algorithms side-by-side
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **User Authentication**: Secure login with Supabase
 
-There are several ways of editing your application.
+## Quick Start
 
-**Use Lovable**
+1. Install dependencies:
+```bash
+npm install
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/243c052e-5a8a-4b31-8dd4-73808f412fa3) and start prompting.
+2. Configure environment variables in `.env.local`:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Run the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Algorithms Supported
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Sorting**: Bubble, Selection, Insertion, Merge, Quick, Heap Sort
+- **Searching**: Linear Search, Binary Search  
+- **Graph**: Breadth-First Search (BFS), Depth-First Search (DFS)
 
-**Use GitHub Codespaces**
+## Tech Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+React 18 • TypeScript • Tailwind CSS • Framer Motion • Supabase • Vite
 
-## What technologies are used for this project?
+## Development
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/243c052e-5a8a-4b31-8dd4-73808f412fa3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with modern web technologies for optimal performance and user experience.
