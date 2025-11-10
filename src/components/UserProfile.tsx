@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { User, Code, Clock, Trophy, Settings } from "lucide-react";
 
 export const UserProfile = () => {
-  const { user } = useAuth();
   const [savedAlgorithms] = useState([
     { name: "Custom Bubble Sort", language: "JavaScript", created: "2 hours ago", runs: 15 },
     { name: "Binary Search Tree", language: "JavaScript", created: "1 day ago", runs: 8 },
@@ -20,7 +18,11 @@ export const UserProfile = () => {
     joinDate: "January 2024"
   });
 
-  if (!user) return null;
+  // Mock user data for demo purposes
+  const user = {
+    name: "Demo User",
+    email: "demo@logiq.com"
+  };
 
   return (
     <div className="space-y-6">

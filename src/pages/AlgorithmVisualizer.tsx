@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { TutorialProvider } from "@/contexts/TutorialContext";
-import ProtectedRoute from "@/components/ProtectedRoute";
 
 
 import { Toaster } from "@/components/ui/toaster";
@@ -22,21 +20,17 @@ const AlgorithmVisualizer = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <AuthProvider>
-          <ProtectedRoute>
-            <TutorialProvider>
-              <Toaster />
-              <Sonner />
-              <LeftTutorialPanel />
-              <Routes>
-                <Route index element={<Index />} />
-                <Route path="compare" element={<Compare />} />
-                <Route path="custom" element={<CustomBuilder />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </TutorialProvider>
-          </ProtectedRoute>
-        </AuthProvider>
+        <TutorialProvider>
+          <Toaster />
+          <Sonner />
+          <LeftTutorialPanel />
+          <Routes>
+            <Route index element={<Index />} />
+            <Route path="compare" element={<Compare />} />
+            <Route path="custom" element={<CustomBuilder />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </TutorialProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
