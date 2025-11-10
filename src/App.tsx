@@ -7,6 +7,7 @@ import { useEffect, Suspense } from "react";
 import Index from "./pages/Index";
 import AlgorithmVisualizer from "./pages/AlgorithmVisualizer";
 import NotFound from "./pages/NotFound";
+import Test from "./pages/Test";
 import { startPerformanceMonitoring, runFullDiagnostics } from "@/lib/performance-monitor";
 import { initializeBrowserCompatibility } from "@/lib/cross-browser-test";
 import { PerformanceOptimizationProvider } from "@/hooks/use-performance-optimization";
@@ -17,7 +18,10 @@ import "./styles/button-fixes.css";
 const queryClient = new QueryClient();
 
 const App = () => {
+  console.log('🎯 App component is rendering...');
+  
   useEffect(() => {
+    console.log('🔧 App useEffect running...');
     try {
       // Initialize browser compatibility testing
       initializeBrowserCompatibility();
@@ -38,8 +42,10 @@ const App = () => {
         
         return () => clearTimeout(timer);
       }
+      
+      console.log('✅ App initialization completed');
     } catch (error) {
-      console.error('App initialization error:', error);
+      console.error('❌ App initialization error:', error);
     }
   }, []);
 
@@ -65,6 +71,7 @@ const App = () => {
               }>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/test" element={<Test />} />
                   <Route path="/algorithm-visualizer/*" element={<AlgorithmVisualizer />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
